@@ -9,4 +9,4 @@ client.on('message', msg => {
   msg.reply('pong');
 });
 
-client.login('ODMwNjgwOTc5NzY0NTQzNDkx.YHKN8g.n1_HZ_SI44YcfzSjk0u4amyIksM');
+client.login('ODMwNjgwOTc5NzY0NTQzNDkx.YHKN8g.n1_HZ_SI44YcfzSjk0u4amyIksM'); 
