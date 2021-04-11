@@ -87,7 +87,7 @@ client.on("message", function(message) {
     }
 });  
 
-client.login('ODMwNjgwOTc5NzY0NTQzNDkx.YHKN8g.n1_HZ_SI44YcfzSjk0u4amyIksM'); 
+client.login(process.env.BOT_TOKEN); 
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
