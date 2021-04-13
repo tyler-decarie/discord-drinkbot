@@ -10,65 +10,51 @@ client.on("message", function(message) {
     const commandBody = message.content.slice(prefix.length);
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
-    if (command === "bot") {
-        if (args[0] === "sucks") {
-            message.channel.send(`rude`);
-        }
-        else if (args[0] === "rocks") {
-            message.channel.send(`tank yoo`);
-        }
-        else {
-            message.channel.send(`Oopsie`);
-        }
-    }  
-
-    else if (command === "sum") {
+    
+    if (command === "sum") {
         const numArgs = args.map(x => parseFloat(x));
         const sum = numArgs.reduce((counter, x) => counter += x);
         message.channel.send(`The sum of all the arguments you provided is ${sum}!`);
     }
 
     else if (command === "roll") {
-        var count = 1;
-        var total = 0;
-        if(args[1] != null) count = args[1];
-        for(var i = 0; i < count; i++){
                 switch(args[0]) {
                     case "d4": {
-                        total += rollD4(message);
+                        rollD4(message);
                         break;
                     }
                     case "d6": {
-                        total += rollD6(message);
+                        rollD6(message);
                         break;
                     }
                     case "d8": {
-                        total += rollD8(message);
+                        rollD8(message);
                         break;
                     }
                     case "d10": {
-                        total += rollD10(message);
+                        rollD10(message);
                         break;
                     }
                     case "d12": {
-                        total += rollD12(message);
+                        rollD12(message);
                         break;
                     }
                     case "d20": {
-                        total += rollD20(message);
+                        rollD20(message);
                         break;
                     }
                     case "d100": {
-                        total += rollD100(message);
+                        rollD100(message);
                         break;
                     }
                     default: {
                         message.channel.send(`Invalid Option`);
                     }
+                }
+    }
 
-            }
-        }
-        if(count > 1) message.channel.send(`Total: ${total}`);
+    else if (command === "drink") {
+        rollDrink20(message);
     }
 
     else if (command === "avatar") {
@@ -155,4 +141,73 @@ function rollD100(message) {
         message.channel.send(`Something went wrong...`);
     }
     return result;
+}
+
+function rollDrink20(message) {
+    const result = getRandomInt(20) + 1;
+    message.channel.send(`You rolled a ${result}!`);
+
+    switch(result) {
+        case 1 :
+            message.channel.send(`get fucked kid`);
+        break;
+        case 2 :
+            message.channel.send(`smokes lets go`);
+        break;
+        case 3 :
+            message.channel.send(`hnnngggg`);
+        break;
+        case 4 :
+            message.channel.send(`fuck`);
+        break;
+        case 5 :
+            message.channel.send(`yared dijon`);
+        break;
+        case 6 :
+            message.channel.send(`ranch`);
+        break;
+        case 7 :
+            message.channel.send(`why tho`);
+        break;
+        case 8 :
+            message.channel.send(`:weary: :100: :ok_hand:`);
+        break;
+        case 9 :
+            message.channel.send(`https://tenor.com/view/drunk-fall-down-stairs-gif-13180785`);
+        break;
+        case 10 :
+            message.channel.send(`this is 10`);
+        break;
+        case 11 :
+            message.channel.send(`out of ideas`);
+        break;
+        case 12 :
+            message.channel.send(`filler for 12`);
+        break;
+        case 13 :
+            message.channel.send(`jim sucks`);
+        break;
+        case 14 :
+            message.channel.send(`ho yea`);
+        break;
+        case 15 :
+            message.channel.send(`yep`);
+        break;
+        case 16 :
+            message.channel.send(`shit piss cum`);
+        break;
+        case 17 :
+            message.channel.send(`frig off`);
+        break;
+        case 18 :
+            message.channel.send(`legal number`);
+        break;
+        case 19 :
+            message.channel.send(`silver medal`);
+        break;
+        case 20 :
+            message.channel.send(`cash money`);
+        break;
+        default: message.channel.send(`oopsie tyty did a fuckie wuckie`);
+    }
 }
